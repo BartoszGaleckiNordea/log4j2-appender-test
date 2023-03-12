@@ -1,0 +1,23 @@
+<Configuration packages="org.example" status="INFO">
+    <Appenders>
+
+        <CustomAppender name="CustomAppender"/>
+        <Async name="AsyncCustomAppender" bufferSize="1000">
+            <AppenderRef ref="CustomAppender"/>
+        </Async>
+
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+        </Root>
+
+        <Logger level="info" name="AsynchronousLogger">
+            <AppenderRef ref="AsyncCustomAppender"/>
+        </Logger>
+
+        <Logger level="info" name="SynchronousLogger">
+            <AppenderRef ref="CustomAppender"/>
+        </Logger>
+
+    </Loggers>
+</Configuration>
